@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APOZL - Coding Arena</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/player.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="theme-light select-disabled">
+
+  <!-- Entry / Fullscreen Authorization Gateway -->
+  <div id="rules-modal" class="fullscreen-overlay">
+    <div class="overlay-card">
+      <h2 style="color: #1e3a8a; margin-bottom: 8px;">APOZL Security Protocol</h2>
+      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">
+        Clicking the button below activates fullscreen and starts proctor monitoring.
+      </p>
+      
+      <div class="form-group" style="text-align: left;">
+        <label>Select Team Name</label>
+        <select id="team-selector" class="form-control" style="margin-bottom: 14px;">
+          <option value="">-- Choose your team --</option>
+        </select>
+      </div>
+
+      <ul class="rules-list">
+        <li>Exiting fullscreen or switching browser tabs flags a violation.</li>
+        <li>3 violations will lock out the workspace permanently.</li>
+        <li>Clipboard pasting and developer tools are blocked.</li>
+      </ul>
+
+      <button id="btn-enter-arena" class="btn btn-emerald btn-lg" style="width: 100%; justify-content: center;">
+        Authorize Fullscreen & Enter Arena
+      </button>
+    </div>
+  </div>
+
+  <!-- Screen Blackout Overlay -->
+  <div id="blockout-overlay" class="fullscreen-overlay hidden">
+    <div class="overlay-card text-center">
+      <h1 style="color: #ef4444; font-size: 32px;">SCREEN BLOCKED</h1>
+      <p id="blockout-msg" style="margin-top: 10px; color: var(--text-muted);">Locked by Administrator.</p>
+    </div>
+  </div>
+
+  <!-- Violation Grace Countdown Overlay -->
+  <div id="countdown-overlay" class="fullscreen-overlay hidden">
+    <div class="overlay-card danger-zone text-center">
+      <h2 style="color: #b91c1c;">VIOLATION DETECTED</h2>
+      <p style="color: #7f1d1d;">Fullscreen has been exited. Return immediately!</p>
+      <div id="countdown-val" class="giant-clock">10</div>
+      <button id="btn-resume-fs" class="btn btn-rose btn-lg">Re-Enter Fullscreen</button>
+    </div>
+  </div>
+
+  <!-- Main IDE Workspace -->
+  <div class="workspace-wrapper">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-title">APOZL</span>
+        <span class="badge" id="team-name-badge">TEAM ARENA</span>
+        <span class="member-tag" id="current-member-name">Member: Loading...</span>
+      </div>
+      <div class="authoritative-clock" id="player-timer">15:00</div>
+      <div class="actions" style="display: flex; align-items: center; gap: 10px;">
+        <span id="save-status" class="save-status">Saved</span>
+        <button id="btn-run" class="btn btn-primary">Run Code</button>
+        <button id="btn-submit" class="btn btn-emerald">Submit</button>
+      </div>
+    </header>
+
+    <div class="ide-split">
+      <div class="problem-pane">
+        <h3 id="problem-title" style="margin-bottom: 10px; color: #1e3a8a;">Loading Challenge...</h3>
+        <div id="problem-desc" class="desc-box"></div>
+        <h4 style="margin-top: 14px;">Sample Input</h4>
+        <pre id="sample-input"></pre>
+        <h4 style="margin-top: 14px;">Sample Output</h4>
+        <pre id="sample-output"></pre>
+      </div>
+
+      <div class="editor-pane">
+        <textarea id="code-editor" spellcheck="false" placeholder="# Write your Python code here..."></textarea>
+      </div>
+
+      <div class="console-pane">
+        <div class="pane-tab">Standard Input (stdin)</div>
+        <textarea id="custom-stdin" placeholder="Enter input arguments..."></textarea>
+        <div class="pane-tab">Console Output</div>
+        <pre id="console-output"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/player.js"></script>
+</body>
+</html>

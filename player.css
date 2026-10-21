@@ -1,0 +1,149 @@
+.workspace-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.ide-split {
+  display: grid;
+  grid-template-columns: 340px 1fr 340px;
+  flex: 1;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.problem-pane, .console-pane {
+  background: #ffffff;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid var(--border-color);
+}
+.console-pane {
+  border-right: none;
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-pane {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+#code-editor {
+  flex: 1;
+  background: #f8fafc;
+  color: #0f172a;
+  border: none;
+  padding: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+}
+
+.authoritative-clock {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 26px;
+  font-weight: 800;
+  color: #1e3a8a;
+  background: #f1f5f9;
+  padding: 4px 14px;
+  border-radius: 6px;
+}
+
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.overlay-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 32px;
+  border-radius: 14px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15);
+}
+.overlay-card.danger-zone {
+  border-color: #ef4444;
+  background: #fff5f5;
+}
+
+.rules-list {
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+  padding-left: 20px;
+}
+
+.giant-clock {
+  font-size: 64px;
+  font-weight: 900;
+  color: #ef4444;
+  margin: 16px 0;
+}
+
+.save-status {
+  font-size: 13px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.pane-tab {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+#custom-stdin {
+  height: 90px;
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 13px;
+  resize: none;
+  margin-bottom: 16px;
+}
+
+#console-output {
+  flex: 1;
+  background: #0f172a;
+  color: #38bdf8;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 13px;
+  overflow: auto;
+}
+
+.desc-box {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  white-space: pre-wrap;
+}
+
+pre#sample-input, pre#sample-output {
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 13px;
+}

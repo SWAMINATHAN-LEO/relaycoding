@@ -1,0 +1,132 @@
+.monitor-container {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  padding: 24px;
+  height: calc(100vh - 60px);
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  overflow-y: auto;
+  align-content: start;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: transform 0.1s ease, border-color 0.2s ease;
+}
+.team-card:hover { border-color: #cbd5e1; }
+.team-card.status-active { border-top: 4px solid #10b981; }
+.team-card.status-paused { border-top: 4px solid #f59e0b; }
+.team-card.status-terminated { border-top: 4px solid #ef4444; background: #fff5f5; }
+
+.team-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.timer-box {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin: 14px 0;
+  color: #1e3a8a;
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 6px 0;
+}
+
+.team-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.team-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.data-table th {
+  text-align: left;
+  padding: 8px 4px;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border-color);
+}
+.data-table td {
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+.code-view {
+  background: #0f172a;
+  color: #38bdf8;
+  padding: 14px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 13px;
+  max-height: 400px;
+  overflow: auto;
+}
